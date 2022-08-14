@@ -49,3 +49,19 @@ function getUsers() {
     .catch(() => console.log("Error occured while fetching data"));
 }
 getUsers();
+
+//Ex4
+
+class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  logProduct() {
+    console.log(`${this.name} is ${this.price} kr`);
+  }
+}
+
+const table = new Product("table", 50);
+table.logProduct();
