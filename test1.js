@@ -28,3 +28,24 @@ function btnShowImgClicked() {
   document.getElementById("img-div").appendChild(img);
   // document.querySelector("body").appendChild(img);
 }
+
+//Ex3
+function getUsers() {
+  fetch("https://reqres.in/api/users")
+    .then((respose) => respose.json())
+    .then((resposeJson) => {
+      console.log(resposeJson.data);
+      if (resposeJson.data.length >= 3) {
+        for (let i = 0; i < 3; i++) {
+          const liElement = document.createElement("li");
+          liElement.innerHTML = resposeJson.data[i].first_name;
+          document.getElementById("users-ul").appendChild(liElement);
+        }
+        //console.log(userNames);
+      } else {
+        console.log("Less than 3 users");
+      }
+    })
+    .catch(() => console.log("Error occured while fetching data"));
+}
+getUsers();
